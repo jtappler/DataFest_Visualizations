@@ -1,0 +1,133 @@
+<html>
+<meta charset="utf-8">
+<title>Joseph's Sankey Diagram</title>
+<style>
+
+@import url(style.css);
+</style>
+<header>
+<aside>March 21th, 2015</aside>
+</header>
+<h1>Joseph's Sankey Diagram</h1>
+<body>
+<p>Built with <a href="https://developers.google.com/chart/interactive/docs/gallery/sankey">Google Interactive</a>.</aside>
+<script type="text/javascript"
+           src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['sankey']}]}"
+           src="http://d3js.org/d3.v2.min.js?2.8.1"></script>
+
+
+<div id="sankey_multiple" style="width: 900px; height: 700px;"></div>
+
+<script type="text/javascript">
+google.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+       [ 'Honda', 'Accord', 10 ],
+       [ 'Honda', 'Civic', 7 ],
+       [ 'Honda', 'CR-V', 9 ],
+       [ 'Honda', 'Fit', 1 ],
+       [ 'Honda', 'Odyssey', 2 ],
+       [ 'Honda', 'Pilot', 1 ],
+       [ 'Hyundai', 'Sonata', 1 ],
+       [ 'Lexus', 'RX 350', 2 ],
+       [ 'Mazda', 'MAZDA3', 2 ],
+       [ 'Nissan', 'Altima', 1 ],
+       [ 'Nissan', 'Rogue', 3 ],
+       [ 'Subaru', 'Forester', 3 ],
+       [ 'Toyota', 'Camry', 1 ],
+       [ 'Toyota', 'Corolla', 2 ],
+       [ 'Toyota', 'Prius', 2 ],
+       [ 'Toyota', 'RAV4', 4 ],
+       [ 'Accord', 'NEW YORK', 3 ],
+       [ 'Accord', 'LOS ANGELES', 3 ],
+       [ 'Accord', 'ATLANTA', 1 ],
+       [ 'Accord', 'BOSTON', 1 ],
+       [ 'Accord', 'DALLAS-FT. WORTH', 1 ],
+       [ 'Accord', 'SAN FRAN-SAN JOSE', 1 ],
+       [ 'Civic', 'NEW YORK', 2 ],
+       [ 'Civic', 'LOS ANGELES', 2 ],
+       [ 'Civic', 'ATLANTA', 1 ],
+       [ 'Civic', 'BOSTON', 1 ],
+       [ 'Civic', 'SAN FRAN-SAN JOSE', 1 ],
+       [ 'CR-V', 'NEW YORK', 2 ],
+       [ 'CR-V', 'CHICAGO', 2 ],
+       [ 'CR-V', 'BOSTON', 2 ],
+       [ 'CR-V', 'LOS ANGELES', 3 ],
+       [ 'Fit', 'LOS ANGELES', 1 ],
+       [ 'Odyssey', 'NEW YORK', 1 ],
+       [ 'Odyssey', 'LOS ANGELES', 1 ],
+       [ 'Pilot', 'NEW YORK', 1 ],
+       [ 'Sonata', 'LOS ANGELES', 1 ],
+       [ 'RX 350', 'NEW YORK', 1 ],
+       [ 'RX 350', 'LOS ANGELES', 1 ],
+       [ 'MAZDA3', 'LOS ANGELES', 2 ],
+       [ 'Altima', 'NEW YORK', 1 ],
+       [ 'Rogue', 'NEW YORK', 3 ],
+       [ 'Forester', 'BOSTON', 1 ],
+       [ 'Forester', 'NEW YORK', 1 ],
+       [ 'Forester', 'WASHINGTON DC', 1 ],
+       [ 'Camry', 'LOS ANGELES', 1 ],
+       [ 'Corolla', 'LOS ANGELES', 1 ],
+       [ 'Corolla', 'SAN FRAN-SAN JOSE', 1 ],
+       [ 'Prius', 'LOS ANGELES', 1 ],
+       [ 'Prius', 'SAN FRAN-SAN JOSE', 1 ],
+       [ 'RAV4', 'NEW YORK', 2 ],
+       [ 'RAV4', 'BOSTON', 1 ],
+       [ 'RAV4', 'LOS ANGELES', 1 ],
+       [ 'NEW YORK','$26,000-$29,250',4 ],
+       [ 'LOS ANGELES','$26,000-$29,250',2 ],
+       [ 'NEW YORK','$22,750-$26,000',6 ],
+       [ 'LOS ANGELES','$22,750-$26,000',5 ],
+       [ 'LOS ANGELES','$19,500-$22,750',6 ],
+       [ 'NEW YORK','$19,500-$22,750',2 ],
+       [ 'ATLANTA','$19,500-$22,750',1 ],
+       [ 'BOSTON','$19,500-$22,750',1 ],
+       [ 'DALLAS-FT. WORTH','$19,500-$22,750',1 ],
+       [ 'SAN FRAN-SAN JOSE','$19,500-$22,750',1 ],
+       [ 'LOS ANGELES','$16,250-$19,500',3 ],
+       [ 'NEW YORK','$16,250-$19,500',1 ],
+       [ 'ATLANTA','$16,250-$19,500',1 ],
+       [ 'BOSTON','$16,250-$19,500',1 ],
+       [ 'SAN FRAN-SAN JOSE','$16,250-$19,500',2 ],
+       [ 'CHICAGO','$26,000-$29,250',1 ],
+       [ 'BOSTON','$26,000-$29,250',1 ],
+       [ 'BOSTON','$22,750-$26,000',3 ],
+       [ 'CHICAGO','$22,750-$26,000',1 ],
+       [ 'NEW YORK','$32,500-$35,764',2 ],
+       [ 'LOS ANGELES','$32,500-$35,764',1 ],
+       [ 'NEW YORK','$45,500-$48,750',1 ],
+       [ 'LOS ANGELES','$42,250-$45,500',1 ],
+       [ 'NEW YORK','$29,250-$32,500',1 ],
+       [ 'WASHINGTON DC','$22,750-$26,000',1 ],
+       [ 'SAN FRAN-SAN JOSE','$22,750-$26,000',1 ],
+    ]);
+
+    // Set chart options
+    var options = {
+      width: 900,
+      sankey: {
+        link: { color: { fill: '#FFD6BF', fillOpacity: 0.8 } },
+        node: { color: { fill: '#33CC66' },
+                label: { 
+                         fontName: 'PT Serif',
+                         fontSize: 16,
+                         color: '#000000',
+                         bold: false,
+                         italic: false}},}};
+
+
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+</body>
+<footer>
+<aside>March 21th, 2015</aside>
+</footer>
+</html>
